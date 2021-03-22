@@ -23,7 +23,8 @@ for line in f:                                                      # запус
         item = line.split(' ')                                 # делим строку
         str = (item[0], item[3], item[4])                      # выбираем нужн элементы
         print(str)                                            # печатаем
-
+f.close()
+f2.close()
 
 
 
