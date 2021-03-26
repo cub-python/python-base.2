@@ -35,5 +35,10 @@ for f in folder:
     folder = os.path.join(fullPath, f)
     createFolder(folder)
 
-os.makedirs('mainapp/base.html/index.html')
-os.makedirs('authapp/base.html/index.html')
+os.mkdir('mainapp/base.html')
+os.mkdir('mainapp/index.html')
+os.mkdir('authapp/base.html')
+os.mkdir('authapp/index.html')
+
+
+# os.makedirs('authapp/base.html/index.html')
