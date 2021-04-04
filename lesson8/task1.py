@@ -13,6 +13,23 @@
 # имеет ли смысл в данном случае использовать функцию re.compile()?
 
 
+# re.compile(pattern, flags). который выполняет компиляцию регулярного выражения и
+# возвращает его в виде экземпляра класса Pattern.
+
 import re
 
-email_parse = re.compile('someone@geekbrains.ru')
+re_email = re.compile('^([\w, \d, .]+)@((([\w, \d, .]+)\.)+[\w]+)$')  # передаем параметры компиляции
+
+
+def email_parse(email):                  # парсируем создав функ email_parse
+    match = re_email.match(email)       #  match используется для поиска в начале строки подстроки, которая соответствует шаблону
+
+    if match:
+        return {'username': match.group(1), 'domain': match.group(2)} #  возвращает  если подстрока найдена
+
+    else:
+        raise ValueError('неккоректный почтовый адрес')   #  возвращает ValueError, если подстрока  не найдена
+
+
+print(email_parse('someone@geekbrains.ru'))
+print(email_parse('someone@geekbrainsru'))
